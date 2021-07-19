@@ -1,8 +1,9 @@
 import { render } from "react-dom";
 import { createUseStyles, ThemeProvider, useTheme } from "react-jss";
-import ITooltipProps from './Tooltip';
 
-const useStyles = createUseStyles(() => ({
+import {ITooltipProps} from './Tooltip';
+
+const useStyles = createUseStyles<"bottom" | "left" | "right" | "top" | "tooltipWrapper" | "tooltipTip", ITooltipProps, Jss.Theme>((theme) => ({
   tooltipWrapper: {
     display: 'inline-block',
     position: 'relative'
@@ -13,8 +14,8 @@ const useStyles = createUseStyles(() => ({
     left: '50%',
     transform: 'translateX(-50%)',
     padding: '6px',
-    color: (props: {textColor: string}) => props.textColor || '',
-    background: (props: {color: string, textColor: string}) => props.color || '',
+    color: (props: ITooltipProps) => props.textColor || '',
+    background: (props: ITooltipProps) => props.color || '',
     fontSize: '14px',
     fontFamily: 'sans-serif',
     lineHeight: 1,
@@ -37,7 +38,7 @@ const useStyles = createUseStyles(() => ({
     top: 'calc(30px * -1)',
     '&:before': {
       top: '100%',
-      borderTopColor: (props: {color:string}) => props.color|| ''  // background color
+      borderTopColor: (props: ITooltipProps) => props.color|| ''
    }
   },
   right: {
@@ -48,14 +49,14 @@ const useStyles = createUseStyles(() => ({
         left: 'calc(6px * -2)',
         top: '50%',
         transform: 'translateX(0) translateY(-50%)',
-        borderRightColor: 'black'
+        borderRightColor: (props: ITooltipProps) => props.color|| ''
    }
   },
   bottom: {
     bottom: 'calc(30px * -1)',
     '&:before': {
       bottom: '100%',
-      borderBottomColor: (props: {color:string}) => props.color || '' // background color
+      borderBottomColor: (props: ITooltipProps) => props.color || ''
     }
   },
   left: {
@@ -68,7 +69,7 @@ const useStyles = createUseStyles(() => ({
       right: 'calc(6px * -2)',
       top: '50%',
       transform: 'translateX(0) translateY(-50%)',
-      borderLeftColor: (props: {color:string}) => props.color || '' // background color
+      borderLeftColor: (props: {color:ITooltipProps}) => props.color || ''
     }
   }
 }));
