@@ -9,17 +9,17 @@ i. Can be configured (via props) to appear in 4 different placements:
   3. left
   4. bottom
 
-ii.  Delay of tooltip can be set in milliseconds
+ii.  Delay of tooltip can be set in milliseconds.
 
-iii. Text color of tooltip can be set
+iii. Text color of tooltip can be set.
 
-iv.  Color of tooltip can be set
+iv.  Color of tooltip can be set.
 
 ### Other consideration
 
-i.   Add a bit of accessbility
+i.   Add a bit of accessbility.
 
-ii.  possibly configure to set arrow size (currently set to 6px)
+ii.  Possibly configure to set arrow size (currently set to 6px).
 
-iii. configure to set distance (margin) from wrapped element
+iii. Configure to set distance (margin) from wrapped element.
 
